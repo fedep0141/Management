@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const SHORTCUTS = require("shortcuts.json");
+const SHORTCUTS = require("/shortcuts.json");
 const FS = require("fs");
 
 const client = new Discord.Client();
