@@ -57,39 +57,12 @@ client.on("message", message => {
     } else {
         if(args.length > 0) {
             for(let i = 0; i < args.length; i++) {
-                for(var key in SHORTCUTS) {
+                for(let key in SHORTCUTS) {
                     if(args[i] == SHORTCUTS[key]) {
                         args[i] = key;
-                    } else {
-                        console.log(key);
-                        args[i] = args[i].charAt(0).toUpperCase() + args[i].slice(1);
                     }
                 }
-                // switch (args[i]) {
-                //     case SHORTCUTS["UNTOUCHABLS"]:
-                //         args[i] = KEYS[0];
-                //         break;
-                //     case SHORTCUTS["Chatting"]:
-                //         args[i] = KEYS[1];
-                //         break;
-                //     case SHORTCUTS["Rainbow Six Siege"]:
-                //         args[i] = KEYS[2];
-                //         break;
-                //     case SHORTCUTS["Among Us"]:
-                //         args[i] = KEYS[3];
-                //         break;
-                //     case SHORTCUTS["Fortnite"]:
-                //         args[i] = KEYS[4];
-                //         break;
-                //     case SHORTCUTS["Brawl Stars"]:
-                //         args[i] = KEYS[5];
-                //         break;
-                //     case SHORTCUTS["AWAY FROM KEYBOARD"]:
-                //         args[i] = KEYS[6];
-                //         break;
-                //     default:
-                //         args[i] = args[i].charAt(0).toUpperCase() + args[i].slice(1);
-                // }
+                args[i] = args[i].charAt(0).toUpperCase() + args[i].slice(1);
             }
         }
         switch (command) {
