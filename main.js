@@ -122,6 +122,7 @@ client.on("message", message => {
                             client.commands.get("moveall").execute(message, args, client);
                         } catch(error) {
                             message.channel.send("Pensi di fottermi?");
+                            message.channel.send(args);
                         }
                     }
                 } else {
