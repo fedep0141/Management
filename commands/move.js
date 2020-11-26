@@ -29,7 +29,6 @@ module.exports = {
 
             message.channel.send("Spostati tutti **" + target.name + "**\nda  " + b + " " + a + "\na    " + channelsA[inNumB].parent.name + " " + channelsA[inNumB].name);
         }
-
         
     }
 }

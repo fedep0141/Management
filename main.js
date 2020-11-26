@@ -18,7 +18,6 @@ const CHANNEL = "move";
 
 client.on("ready", () => {
     console.log("GulagBot is online");
-    console.log(SHORTCUTS.UNTOUCHABLS, KEYS[0]);
 });
 
 client.on("message", message => {
@@ -57,32 +56,39 @@ client.on("message", message => {
         message.channel.send("Uagliò sei sul canale sbagliato");
     } else {
         if(args.length > 0) {
-            for (let i = 0; i < args.length; i++) {
-                switch (args[i]) {
-                    case SHORTCUTS["UNTOUCHABLS"]:
-                        args[i] = KEYS[0];
-                        break;
-                    case SHORTCUTS["Chatting"]:
-                        args[i] = KEYS[1];
-                        break;
-                    case SHORTCUTS["Rainbow Six Siege"]:
-                        args[i] = KEYS[2];
-                        break;
-                    case SHORTCUTS["Among Us"]:
-                        args[i] = KEYS[3];
-                        break;
-                    case SHORTCUTS["Fortnite"]:
-                        args[i] = KEYS[4];
-                        break;
-                    case SHORTCUTS["Brawl Stars"]:
-                        args[i] = KEYS[5];
-                        break;
-                    case SHORTCUTS["AWAY FROM KEYBOARD"]:
-                        args[i] = KEYS[6];
-                        break;
-                    default:
+            for(let i = 0; i < args.length; i++) {
+                for(var key in SHORTCUTS) {
+                    if(args[i] == key) {
+                        args[i] = SHORTCUTS[key];
+                    } else {
                         args[i] = args[i].charAt(0).toUpperCase() + args[i].slice(1);
+                    }
                 }
+                // switch (args[i]) {
+                //     case SHORTCUTS["UNTOUCHABLS"]:
+                //         args[i] = KEYS[0];
+                //         break;
+                //     case SHORTCUTS["Chatting"]:
+                //         args[i] = KEYS[1];
+                //         break;
+                //     case SHORTCUTS["Rainbow Six Siege"]:
+                //         args[i] = KEYS[2];
+                //         break;
+                //     case SHORTCUTS["Among Us"]:
+                //         args[i] = KEYS[3];
+                //         break;
+                //     case SHORTCUTS["Fortnite"]:
+                //         args[i] = KEYS[4];
+                //         break;
+                //     case SHORTCUTS["Brawl Stars"]:
+                //         args[i] = KEYS[5];
+                //         break;
+                //     case SHORTCUTS["AWAY FROM KEYBOARD"]:
+                //         args[i] = KEYS[6];
+                //         break;
+                //     default:
+                //         args[i] = args[i].charAt(0).toUpperCase() + args[i].slice(1);
+                // }
             }
         }
         switch (command) {
@@ -90,13 +96,10 @@ client.on("message", message => {
                 client.commands.get("ping").execute(message, args);
                 break;
 
-            case "help" || "aiut":
+            case "aiut":
+            case "help":
                 client.commands.get("help").execute(message, args, PREFIX);
                 break;
-
-            // case "aiut":
-            //     client.commands.get("help").execute(message, args, PREFIX);
-            //     break;
 
             case "ban":
                 client.commands.get("ban").execute(message);
