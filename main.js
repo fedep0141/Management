@@ -18,7 +18,7 @@ const CHANNEL = "move";
 
 client.on("ready", () => {
     console.log("GulagBot is online");
-    console.log(SHORTCUTS.KEYS[0], KEYS[0]);
+    console.log(SHORTCUTS.UNTOUCHABLS, KEYS[0]);
 });
 
 client.on("message", message => {
