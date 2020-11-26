@@ -18,7 +18,7 @@ const CHANNEL = "move";
 
 client.on("ready", () => {
     console.log("GulagBot is online");
-    console.log(KEYS, SHORTCUTS.ciao);
+    console.log(SHORTCUTS.KEYS[0], KEYS[0]);
 });
 
 client.on("message", message => {
@@ -59,26 +59,26 @@ client.on("message", message => {
         if(args.length > 0) {
             for (let i = 0; i < args.length; i++) {
                 switch (args[i]) {
-                    case "un":
-                        args[i] = "UNTOUCHABLS";
+                    case SHORTCUTS.KEYS[0]:
+                        args[i] = KEYS[0];
                         break;
                     case "chat":
-                        args[i] = "Chatting";
+                        args[i] = KEYS[0];
                         break;
                     case "r6":
-                        args[i] = "Rainbow Six Siege";
+                        args[i] = KEYS[0];
                         break;
                     case "among":
-                        args[i] = "Among Us";
+                        args[i] = KEYS[0];
                         break;
                     case "fort":
-                        args[i] = "Fortnite";
+                        args[i] = KEYS[0];
                         break;
                     case "brawl":
-                        args[i] = "Brawl Stars";
+                        args[i] = KEYS[0];
                         break;
                     case "afk":
-                        args[i] = "AWAY FROM KEYBOARD";
+                        args[i] = KEYS[0];
                         break;
                     default:
                         args[i] = args[i].charAt(0).toUpperCase() + args[i].slice(1);
