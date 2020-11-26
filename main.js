@@ -59,26 +59,26 @@ client.on("message", message => {
         if(args.length > 0) {
             for (let i = 0; i < args.length; i++) {
                 switch (args[i]) {
-                    case SHORTCUTS.KEYS[0]:
+                    case SHORTCUTS["UNTOUCHABLS"]:
                         args[i] = KEYS[0];
                         break;
-                    case "chat":
-                        args[i] = KEYS[0];
+                    case SHORTCUTS["Chatting"]:
+                        args[i] = KEYS[1];
                         break;
-                    case "r6":
-                        args[i] = KEYS[0];
+                    case SHORTCUTS["Rainbow Six Siege"]:
+                        args[i] = KEYS[2];
                         break;
-                    case "among":
-                        args[i] = KEYS[0];
+                    case SHORTCUTS["Among Us"]:
+                        args[i] = KEYS[3];
                         break;
-                    case "fort":
-                        args[i] = KEYS[0];
+                    case SHORTCUTS["Fortnite"]:
+                        args[i] = KEYS[4];
                         break;
-                    case "brawl":
-                        args[i] = KEYS[0];
+                    case SHORTCUTS["Brawl Stars"]:
+                        args[i] = KEYS[5];
                         break;
-                    case "afk":
-                        args[i] = KEYS[0];
+                    case SHORTCUTS["AWAY FROM KEYBOARD"]:
+                        args[i] = KEYS[6];
                         break;
                     default:
                         args[i] = args[i].charAt(0).toUpperCase() + args[i].slice(1);
@@ -94,9 +94,9 @@ client.on("message", message => {
                 client.commands.get("help").execute(message, args, PREFIX);
                 break;
 
-            case "aiut":
-                client.commands.get("help").execute(message, args, PREFIX);
-                break;
+            // case "aiut":
+            //     client.commands.get("help").execute(message, args, PREFIX);
+            //     break;
 
             case "ban":
                 client.commands.get("ban").execute(message);
