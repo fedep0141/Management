@@ -1,36 +1,38 @@
 const Discord = require("discord.js");
-// const config = require("/config.json");
+const SHORTCUTS = require("/shortcuts.json");
+const FS = require("fs");
 
 const client = new Discord.Client();
-const login = process.env.GULAGBOT_TOKEN;
-
-const prefix = "$";
-
-const fs = require("fs");
+const KEYS = Object.keys(SHORTCUTS);
 client.commands = new Discord.Collection();
-const commandFiles = fs.readdirSync("./commands/").filter(file => file.endsWith(".js"));
-for(const file of commandFiles) {
-    const command = require("./commands/" + file);
+const COMMANDFILES = FS.readdirSync("./commands/").filter(file => file.endsWith(".js"));
+for(let file of COMMANDFILES) {
+    let command = require("./commands/" + file);
     client.commands.set(command.name, command)
 }
 
+const LOGIN = process.env.GULAGBOT_TOKEN;
+
+const PREFIX = "$";
+const CHANNEL = "move";
+
 client.on("ready", () => {
-    console.log("MoveBot is online");
+    console.log("GulagBot is online");
+    console.log(KEYS, SHORTCUTS.suca);
 });
 
 client.on("message", message => {
-    if(!message.content.startsWith(prefix) && !message.author.bot) {
-        if(message.channel.name == "move") {
+    if(!message.content.startsWith(PREFIX) && !message.author.bot) {
+        if(message.channel.name == CHANNEL) {
             message.delete();
         }else {
             return;
         }
     }
-
     if(message.author.bot) return;
 
-    let args = message.content.slice(prefix.length).split(/ +/);
-    const commands = args.shift().toLowerCase();
+    let args = message.content.slice(PREFIX.length).split(/ +/);
+    const command = args.shift().toLowerCase();
 
     try {
         for(let i = 0; i < args.length; i++) {
@@ -50,9 +52,8 @@ client.on("message", message => {
         message.channel.send("Non sei in nessun canale brooo");
         return;
     }
-    
 
-    if(message.channel.name != "move") {
+    if(message.channel.name != CHANNEL) {
         message.channel.send("Uagliò sei sul canale sbagliato");
     } else {
         if(args.length > 0) {
@@ -84,17 +85,17 @@ client.on("message", message => {
                 }
             }
         }
-        switch (commands) {
+        switch (command) {
             case "ping":
                 client.commands.get("ping").execute(message, args);
                 break;
 
             case "help" || "aiut":
-                client.commands.get("help").execute(message, args, prefix);
+                client.commands.get("help").execute(message, args, PREFIX);
                 break;
 
             case "aiut":
-                client.commands.get("help").execute(message, args, prefix);
+                client.commands.get("help").execute(message, args, PREFIX);
                 break;
 
             case "ban":
@@ -140,4 +141,4 @@ client.on("message", message => {
     }
 });
 
-client.login(login);
+client.login(LOGIN);
