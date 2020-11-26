@@ -58,9 +58,10 @@ client.on("message", message => {
         if(args.length > 0) {
             for(let i = 0; i < args.length; i++) {
                 for(var key in SHORTCUTS) {
-                    if(args[i] == key) {
-                        args[i] = SHORTCUTS[key];
+                    if(args[i] == SHORTCUTS[key]) {
+                        args[i] = key;
                     } else {
+                        console.log(key);
                         args[i] = args[i].charAt(0).toUpperCase() + args[i].slice(1);
                     }
                 }
