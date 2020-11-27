@@ -82,10 +82,10 @@ client.on("message", message => {
                 client.commands.get("help").execute(message, args, PREFIX);
                 break;
 
-            case "setting":
-            case "settings":
-                client.commands.get("setting").execute(message, args, DB);
-                break;
+            // case "setting":
+            // case "settings":
+            //     client.commands.get("setting").execute(message, args, DB);
+            //     break;
 
             case "ban":
                 client.commands.get("ban").execute(message);
