@@ -5,7 +5,6 @@ const DB = require("quick.db");
 const FS = require("fs");
 
 const client = new Discord.Client();
-// const KEYS = Object.keys(SHORTCUTS);
 client.commands = new Discord.Collection();
 const COMMANDFILES = FS.readdirSync("./commands/").filter(file => file.endsWith(".js"));
 for(let file of COMMANDFILES) {
@@ -13,14 +12,15 @@ for(let file of COMMANDFILES) {
     client.commands.set(command.name, command)
 }
 
-const LOGIN = process.env.GULAGBOT_TOKEN;
-
 client.on("ready", () => {
     console.log("GulagBot is online");
 });
 
 client.on("guildCreate", (guild) => {
     DB.set(guild.name, DEFAULT);
+    guild.channels.create("move", {type: "text"}).then((channel) => {
+        channel.send("Here you can use this bot.\nTo change the name use the settings command");
+    })
 });
 
 client.on("message", message => {
@@ -82,6 +82,11 @@ client.on("message", message => {
                 client.commands.get("help").execute(message, args, PREFIX);
                 break;
 
+            case "setting":
+            case "settings":
+                client.commands.get("setting").execute(message, args, DB);
+                break;
+
             case "ban":
                 client.commands.get("ban").execute(message);
                 break;
@@ -125,4 +130,4 @@ client.on("message", message => {
     }
 });
 
-client.login(LOGIN);
+client.login(process.env.GULAGBOT_TOKEN);
