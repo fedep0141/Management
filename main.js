@@ -12,13 +12,9 @@ for(let file of COMMANDFILES) {
     client.commands.set(command.name, command)
 }
 
-client.on("ready", (guild) => {
+client.on("ready", () => {
     console.log("GulagBot is online");
-    //per ora
-    DB.set(guild.name, DEFAULT);
-    guild.channels.create("move", {type: "text"}).then((channel) => {
-        channel.send("Here you can use this bot.\nTo change the name use the settings command");
-    })
+    DB.set("IL GULAG", DEFAULT);
 });
 
 client.on("guildCreate", (guild) => {
@@ -32,7 +28,6 @@ client.on("message", message => {
     const SERVER = message.guild;
     const PREFIX = DB.get(SERVER.name + ".prefix");
     const CHANNEL = DB.get(SERVER.name + ".channel");
-    console.log(SERVER.name, PREFIX, CHANNEL);
 
     if(!message.content.startsWith(PREFIX) && !message.author.bot) {
         if(message.channel.name == CHANNEL) {
