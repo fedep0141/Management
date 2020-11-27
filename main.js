@@ -1,10 +1,11 @@
 const Discord = require("discord.js");
 const SHORTCUTS = require("./shortcuts.json");
-const FS = require("fs");
+const DEFAULT = require("./default.json");
 const DB = require("quick.db");
+const FS = require("fs");
 
 const client = new Discord.Client();
-const KEYS = Object.keys(SHORTCUTS);
+// const KEYS = Object.keys(SHORTCUTS);
 client.commands = new Discord.Collection();
 const COMMANDFILES = FS.readdirSync("./commands/").filter(file => file.endsWith(".js"));
 for(let file of COMMANDFILES) {
@@ -13,21 +14,26 @@ for(let file of COMMANDFILES) {
 }
 
 const LOGIN = process.env.GULAGBOT_TOKEN;
+DB.set(guild.name, DEFAULT);
 
-const PREFIX = "$";
-DB.set("prefisso", PREFIX);
-const CHANNEL = "move";
 
 client.on("ready", () => {
     console.log("GulagBot is online");
-    console.log(DB.get("prefisso"));
+});
+
+client.on("guildCreate", guild => {
+    DB.set(guild.name, DEFAULT);
 });
 
 client.on("message", message => {
+    const SERVER = message.guild;
+    const PREFIX = DB.get(SERVER.name + ".prefix");
+    const CHANNEL = DB.get(SERVER.name + ".channel");
+
     if(!message.content.startsWith(PREFIX) && !message.author.bot) {
         if(message.channel.name == CHANNEL) {
             message.delete();
-        }else {
+        } else {
             return;
         }
     }
@@ -41,7 +47,7 @@ client.on("message", message => {
             if(args[i] == "here") {
                 const uHere = message.member.voice.channel;
                 args[i] = uHere.parent.name.slice(3, -3);
-                const categoryDa = message.guild.channels.cache.filter(x => x.type === "voice" && x.parent.name === uHere.parent.name);
+                const categoryDa = GUILD.channels.cache.filter(x => x.type === "voice" && x.parent.name === uHere.parent.name);
                 let channelsDa = categoryDa.map(e => client.channels.resolve(e));
                 for(let j = 0; j < channelsDa.length; j++) {
                     if(channelsDa[j].name == uHere.name) {
