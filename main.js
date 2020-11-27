@@ -12,8 +12,13 @@ for(let file of COMMANDFILES) {
     client.commands.set(command.name, command)
 }
 
-client.on("ready", () => {
+client.on("ready", (guild) => {
     console.log("GulagBot is online");
+    //per ora
+    DB.set(guild.name, DEFAULT);
+    guild.channels.create("move", {type: "text"}).then((channel) => {
+        channel.send("Here you can use this bot.\nTo change the name use the settings command");
+    })
 });
 
 client.on("guildCreate", (guild) => {
