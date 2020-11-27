@@ -21,7 +21,7 @@ client.on("ready", () => {
     console.log("GulagBot is online");
 });
 
-client.on("guildCreate", guild => {
+client.on("guildCreate", (guild) => {
     DB.set(guild.name, DEFAULT);
 });
 
