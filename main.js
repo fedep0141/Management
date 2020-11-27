@@ -14,8 +14,6 @@ for(let file of COMMANDFILES) {
 }
 
 const LOGIN = process.env.GULAGBOT_TOKEN;
-DB.set(guild.name, DEFAULT);
-
 
 client.on("ready", () => {
     console.log("GulagBot is online");
