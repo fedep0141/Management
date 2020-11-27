@@ -27,6 +27,7 @@ client.on("message", message => {
     const SERVER = message.guild;
     const PREFIX = DB.get(SERVER.name + ".prefix");
     const CHANNEL = DB.get(SERVER.name + ".channel");
+    console.log(SERVER.name, PREFIX, CHANNEL);
 
     if(!message.content.startsWith(PREFIX) && !message.author.bot) {
         if(message.channel.name == CHANNEL) {
