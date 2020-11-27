@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const SHORTCUTS = require("./shortcuts.json");
 const FS = require("fs");
+const DB = require("quick.db");
 
 const client = new Discord.Client();
 const KEYS = Object.keys(SHORTCUTS);
@@ -14,10 +15,12 @@ for(let file of COMMANDFILES) {
 const LOGIN = process.env.GULAGBOT_TOKEN;
 
 const PREFIX = "$";
+DB.set("prefisso", PREFIX);
 const CHANNEL = "move";
 
 client.on("ready", () => {
     console.log("GulagBot is online");
+    console.log(DB.get("prefisso"));
 });
 
 client.on("message", message => {
