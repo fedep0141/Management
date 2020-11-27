@@ -2,9 +2,10 @@ module.exports = {
     name: "setting",
     description: "Aiuto con i comandi",
     execute(message, args, db) {
-        console.log(JSON.parse(db.get(message.guild.name)));
+        let json = JSON.stringify(db.get(message.guild.name));
+        console.log(JSON.parse(json));
         // if(args.lenght == 0) {
-            message.channel.send(JSON.parse(db.get(message.guild.name)));
+            message.channel.send(JSON.parse(json));
         // }
     }
 }
