@@ -1,12 +1,12 @@
 module.exports = {
     name: "ping",
     description: "Ping command",
-    execute(message, Discord, ping) {
+    execute(message, Discord, client) {
         const exampleEmbed = new Discord.MessageEmbed()
 	    .setColor("#f0cf29")
 	    .setTitle("Ping")
 	    .setAuthor(client.user.username, client.user.avatarURL())
-	    .setDescription(ping);
+	    .setDescription(client.ws.ping);
 
         message.channel.send(exampleEmbed);
     }

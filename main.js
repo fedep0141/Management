@@ -12,8 +12,6 @@ for(let file of COMMANDFILES) {
     client.commands.set(command.name, command)
 }
 
-const PING = client.ws.ping;
-
 client.on("ready", () => {
     console.log("GulagBot is online");
     DB.set("IL GULAG", DEFAULT);
@@ -77,7 +75,7 @@ client.on("message", message => {
         }
         switch (command) {
             case "ping":
-                client.commands.get("ping").execute(message, Discord ,PING);
+                client.commands.get("ping").execute(message, Discord, client);
                 break;
 
             case "aiut":
