@@ -2,13 +2,39 @@ module.exports = {
     name: "help",
     description: "Aiuto con i comandi",
     execute(message, args, prefix) {
-        let messaggio = `
-${prefix}help: Aiuto con i comandi
-${prefix}moveall categoryA posA categoryB posB: Sposta da A a B
-${prefix}move @user o @role categoryB posB: Sposta da A a B
-${prefix}scarponi: Non te ne pentirai
-${prefix}pat @user: Dai una pacca a qualcuno
-Note: puoi usare here per la tua categoria e posizione`;
-        message.channel.send(messaggio);
+        message.channel.send({embed: {
+            color: "#28b013",
+            description: "Command list",
+            fields: [{
+                name: "help",
+                value: "Show command list",
+                inline: true
+              },
+              {
+                name: "moveall",
+                value: "categoryA posA categoryB positionB: Move from A to B",
+                inline: true
+              },
+              {
+                name: "move",
+                value: "@user or @role categoryB positionB: Move from A to B",
+                inline: true
+              },
+              {
+                name: "scarponi",
+                value: "Non te ne pentirai",
+                inline: true
+              },
+              {
+                name: "pat",
+                value: "@user: pat someone",
+                inline: true
+              },
+            ],
+            footer: {
+                text: "You can use here to have your category and position"
+              }
+          }
+        });
     }
 }

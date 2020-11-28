@@ -20,7 +20,7 @@ client.on("ready", () => {
 client.on("guildCreate", (guild) => {
     DB.set(guild.name, DEFAULT);
     guild.channels.create("move", {type: "text"}).then((channel) => {
-        channel.send("Here you can use this bot.\nTo change the name use the settings command");
+        channel.send("Here you can use this bot.\nTo change the name use the $settings command");
     })
 });
 
@@ -56,7 +56,7 @@ client.on("message", message => {
             }
         }
     } catch (error) {
-        message.channel.send("Non sei in nessun canale brooo");
+        message.channel.send("You're not in a channel");
         return;
     }
 

@@ -1,6 +1,6 @@
 module.exports = {
     name: "moveall",
-    description: "categoryA posA categoryB posB: Sposta da A a B",
+    description: "categoryA posA categoryB positionB: Move from A to B",
     execute(message, args, client) {
         let inCatA = args[0], inCatB = args[2];
         let inNumA = args[1] - 1, inNumB = args[3] - 1;
@@ -15,10 +15,9 @@ module.exports = {
             member.voice.setChannel(channelsA[inNumB]);
         });
 
-        // message.channel.send("Spostati tutti \nda  " + channelsDa[inNumA].parent.name + " " + channelsDa[inNumA].name + "\na    " + channelsA[inNumB].parent.name + " " + channelsA[inNumB].name);
         message.channel.send({embed: {
             color: "#c41d1d",
-            description: "Moved all",
+            description: "Moved everyone",
             fields: [{
                 name: "From",
                 value: channelsDa[inNumA].parent.name + " " + channelsDa[inNumA].name
