@@ -30,6 +30,11 @@ module.exports = {
                 value: "@user: pat someone",
                 inline: true
               },
+              {
+                name: "settings",
+                value: "Change settings",
+                inline: true
+              },
             ],
             footer: {
                 text: "You can use here to have your category and position"
