@@ -26,8 +26,9 @@ client.on("guildCreate", (guild) => {
 
 client.on("message", message => {
     const SERVER = message.guild;
-    const PREFIX = DB.get(SERVER.name + ".prefix");
-    const CHANNEL = DB.get(SERVER.name + ".channel");
+    const serverDb = DB.get(SERVER.name)
+    const PREFIX = serverDb.get("prefix");
+    const CHANNEL = serverDb.get("channel");
 
     if(!message.content.startsWith(PREFIX) && !message.author.bot) {
         if(message.channel.name == CHANNEL) {
@@ -85,7 +86,7 @@ client.on("message", message => {
 
             case "setting":
             case "settings":
-                client.commands.get("setting").execute(message, args, DB);
+                client.commands.get("setting").execute(message, args, serverDb);
                 break;
 
             case "ban":
