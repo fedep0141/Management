@@ -46,7 +46,7 @@ client.on("message", message => {
             if(args[i] == "here") {
                 const uHere = message.member.voice.channel;
                 args[i] = uHere.parent.name.slice(3, -3);
-                const categoryDa = GUILD.channels.cache.filter(x => x.type === "voice" && x.parent.name === uHere.parent.name);
+                const categoryDa = SERVER.channels.cache.filter(x => x.type === "voice" && x.parent.name === uHere.parent.name);
                 let channelsDa = categoryDa.map(e => client.channels.resolve(e));
                 for(let j = 0; j < channelsDa.length; j++) {
                     if(channelsDa[j].name == uHere.name) {
