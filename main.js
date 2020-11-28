@@ -4,6 +4,8 @@ const DEFAULT = require("./default.json");
 const DB = require("quick.db");
 const FS = require("fs");
 
+const PING = client.ws.ping;
+
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 const COMMANDFILES = FS.readdirSync("./commands/").filter(file => file.endsWith(".js"));
@@ -75,7 +77,7 @@ client.on("message", message => {
         }
         switch (command) {
             case "ping":
-                client.commands.get("ping").execute(message, args);
+                client.commands.get("ping").execute(message, Discord ,PING);
                 break;
 
             case "aiut":
