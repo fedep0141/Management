@@ -16,7 +16,7 @@ module.exports = {
                     message.channel.send(db.get(message.guild.name + "." + key));
                 }
             }
-        } else if(args.length == 3) {
+        } else if(args.length == 2) {
             for(let key in db.get(message.guild.name)) {
                 if(args[0].toLowerCase() == key) {
                     db.set(message.guild.name + "." + key, args[1]);
