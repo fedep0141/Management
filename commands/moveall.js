@@ -21,13 +21,11 @@ module.exports = {
             description: "Moved all",
             fields: [{
                 name: "From",
-                value: channelsDa[inNumA].parent.name + " " + channelsDa[inNumA].name,
-                inline: true
+                value: channelsDa[inNumA].parent.name + " " + channelsDa[inNumA].name
               },
               {
                 name: "To",
-                value: channelsA[inNumB].parent.name + " " + channelsA[inNumB].name,
-                inline: true
+                value: channelsA[inNumB].parent.name + " " + channelsA[inNumB].name
               },
             ]
           }
