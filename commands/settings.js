@@ -3,10 +3,10 @@ module.exports = {
     description: "Aiuto con i comandi",
     execute(message, args, db) {
         let stringDb = JSON.stringify(db.get(message.guild.name));
-        stringDb.replace("{", "");
-        stringDb.replace("}", "");
-        stringDb.replace(",", "\n");
-        stringDb.replace("\"", "");
+        stringDb = stringDb.replace("{", "");
+        stringDb = stringDb.replace("}", "");
+        stringDb = stringDb.replace(",", "\n");
+        stringDb = stringDb.replace("\"", "");
         console.log(stringDb);
         // if(args.lenght == 0) {
 
