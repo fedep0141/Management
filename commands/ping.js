@@ -9,7 +9,6 @@ module.exports = {
               name: client.user.username,
               icon_url: client.user.avatarURL()
             },
-            title: "GulagBot",
             description: "Show bot ping",
             fields: [{
                 name: "Ping",
