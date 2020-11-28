@@ -8,8 +8,7 @@ module.exports = {
         stringDb = stringDb.replace(",", "\n");
         stringDb = stringDb.replace(/['"]+/g, "");
 
-        console.log(args.lenght);
-        if(!args.lenght > 0) {
+        if(!args.length > 0) {
             message.channel.send(stringDb);
         } else {
             for(let key in db.get(message.guild.name)) {
