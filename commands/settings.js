@@ -6,7 +6,7 @@ module.exports = {
         stringDb = stringDb.replace("{", "");
         stringDb = stringDb.replace("}", "");
         stringDb = stringDb.replace(",", "\n");
-        stringDb = stringDb.replace(/@"[^"]*"/g, "");
+        stringDb = stringDb.replace(/['"]+/g, "");
         console.log(stringDb);
         // if(args.lenght == 0) {
 
