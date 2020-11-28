@@ -15,6 +15,22 @@ module.exports = {
             member.voice.setChannel(channelsA[inNumB]);
         });
 
-        message.channel.send("Spostati tutti \nda  " + channelsDa[inNumA].parent.name + " " + channelsDa[inNumA].name + "\na    " + channelsA[inNumB].parent.name + " " + channelsA[inNumB].name);
+        // message.channel.send("Spostati tutti \nda  " + channelsDa[inNumA].parent.name + " " + channelsDa[inNumA].name + "\na    " + channelsA[inNumB].parent.name + " " + channelsA[inNumB].name);
+        message.channel.send({embed: {
+            color: "#c41d1d",
+            description: "Moved all",
+            fields: [{
+                name: "From",
+                value: channelsDa[inNumA].parent.name + " " + channelsDa[inNumA].name,
+                inline: true
+              },
+              {
+                name: "To",
+                value: channelsA[inNumB].parent.name + " " + channelsA[inNumB].name,
+                inline: true
+              },
+            ]
+          }
+        });
     }
 }

@@ -5,10 +5,6 @@ module.exports = {
 
         message.channel.send({embed: {
             color: "#f0cf29",
-            author: {
-              name: client.user.username,
-              icon_url: client.user.avatarURL()
-            },
             description: "Show bot ping",
             fields: [{
                 name: "Ping",
