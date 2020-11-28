@@ -11,10 +11,8 @@ module.exports = {
         if(!args.length > 0) {
             message.channel.send(stringDb);
         } else {
-            console.log(args[0]);
             for(let key in db.get(message.guild.name)) {
-                console.log(key);
-                if(args[0] == key) {
+                if(args[0].toLowerCase() == key) {
                     message.channel.send(db.get(message.guild.name + "." + key));
                 }
             }
