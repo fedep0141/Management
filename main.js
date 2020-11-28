@@ -4,8 +4,6 @@ const DEFAULT = require("./default.json");
 const DB = require("quick.db");
 const FS = require("fs");
 
-const PING = client.ws.ping;
-
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 const COMMANDFILES = FS.readdirSync("./commands/").filter(file => file.endsWith(".js"));
@@ -13,6 +11,8 @@ for(let file of COMMANDFILES) {
     let command = require("./commands/" + file);
     client.commands.set(command.name, command)
 }
+
+const PING = client.ws.ping;
 
 client.on("ready", () => {
     console.log("GulagBot is online");
