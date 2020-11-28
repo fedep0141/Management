@@ -75,7 +75,7 @@ client.on("message", message => {
         }
         switch (command) {
             case "ping":
-                client.commands.get("ping").execute(message, Discord, client);
+                client.commands.get("ping").execute(message, client);
                 break;
 
             case "aiut":
