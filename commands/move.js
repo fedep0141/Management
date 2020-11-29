@@ -1,7 +1,7 @@
 module.exports = {
     name: "move",
     description: "<@user or @role> <categoryB> <channelNumberB>",
-    whatDo: "Move the mention to channel B",
+    whatDo: "Move the mention to channel",
     execute(message, args, client, startslice, endslice) {
         let inCatB = args[1];
         let inNumB = args[2] - 1;

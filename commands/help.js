@@ -13,9 +13,7 @@ module.exports = {
       Array.from(commands.keys()).forEach(key => {
         embed.addField(prefix + key, commands.get(key).whatDo, true);
       });
-        
       
-
       message.channel.send(embed);
     }
 }
