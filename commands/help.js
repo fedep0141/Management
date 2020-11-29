@@ -1,7 +1,8 @@
 module.exports = {
     name: "help",
     description: "Aiuto con i comandi",
-    execute(message, args, prefix) {
+    whatDo: "",
+    execute(message, args, prefix, commands) {
         message.channel.send({embed: {
             color: "#28b013",
             description: "Command list",

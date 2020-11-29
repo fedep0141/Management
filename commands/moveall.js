@@ -1,6 +1,6 @@
 module.exports = {
     name: "moveall",
-    description: "categoryA posA categoryB positionB: Move from A to B",
+    description: "<categoryA> <channelNumberA> <categoryB> <channelNumberB>",
     execute(message, args, client, startslice, endslice) {
         let inCatA = args[0], inCatB = args[2];
         let inNumA = args[1] - 1, inNumB = args[3] - 1;
