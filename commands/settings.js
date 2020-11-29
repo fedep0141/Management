@@ -9,9 +9,11 @@ module.exports = {
         stringDb = stringDb.replace(/['"]+/g, "");
         let res = stringDb.split(/[:]+[,]+/g);
 
+        console.log(res);
+
         if(args.length == 0) {
             message.channel.send(res.forEach(i => {
-                res[i];
+                res;
             }));
         } else if(args.length == 1){
             for(let key in db.get(message.guild.name)) {
