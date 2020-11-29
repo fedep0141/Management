@@ -16,7 +16,7 @@ client.on("ready", () => {
     console.log("GulagBot is online");
     //for now
     DB.set("IL GULAG", DEFAULT);
-    console.log(client.commands);
+    console.log(Array.from(client.commands.keys()));
 });
 
 client.on("guildCreate", (guild) => {
