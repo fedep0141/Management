@@ -46,8 +46,7 @@ function image(message, options) {
                 url: urls[index]
             },
             footer: {
-                text: "GulagBot by Pyguz.#0456",
-                url: "https://discord.com/users/Pyguz.#0456/"
+                text: "GulagBot by Pyguz.#0456"
               }
           }
         });

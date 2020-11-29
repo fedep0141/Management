@@ -29,7 +29,6 @@ module.exports = {
             ],
             footer: {
                 text: "GulagBot by Pyguz.#0456",
-                url: "https://discord.com/users/Pyguz.#0456/"
             }
           }
         });

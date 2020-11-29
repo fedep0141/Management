@@ -13,8 +13,7 @@ module.exports = {
                         url: "https://i.kym-cdn.com/entries/icons/original/000/030/329/cover1.jpg"
                     },
                     footer: {
-                        text: "GulagBot by Pyguz.#0456",
-                        url: "https://discord.com/users/Pyguz.#0456/"
+                        text: "GulagBot by Pyguz.#0456"
                     }
                   }
                 });
@@ -27,8 +26,7 @@ module.exports = {
                       },
                     ],
                     footer: {
-                        text: "GulagBot by Pyguz.#0456",
-                        url: "https://discord.com/users/Pyguz.#0456/"
+                        text: "GulagBot by Pyguz.#0456"
                     }
                   }
                 });
