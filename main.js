@@ -14,6 +14,7 @@ for(let file of COMMANDFILES) {
 
 client.on("ready", () => {
     console.log("GulagBot is online");
+    //for now
     DB.set("IL GULAG", DEFAULT);
 });
 
@@ -28,6 +29,8 @@ client.on("message", message => {
     const SERVER = message.guild;
     const PREFIX = DB.get(SERVER.name + ".prefix");
     const CHANNEL = DB.get(SERVER.name + ".channel");
+    const STARTSLICE = DB.get(SERVER.name + ".startslice");
+    const ENDSLICE = DB.get(SERVER.name + ".endslice");
 
     if(!message.content.startsWith(PREFIX) && !message.author.bot) {
         if(message.channel.name == CHANNEL) {
@@ -45,7 +48,7 @@ client.on("message", message => {
         for(let i = 0; i < args.length; i++) {
             if(args[i] == "here") {
                 const uHere = message.member.voice.channel;
-                args[i] = uHere.parent.name.slice(3, -3);
+                args[i] = uHere.parent.name.slice(STARTSLICE, -ENDSLICE);
                 const categoryDa = SERVER.channels.cache.filter(x => x.type === "voice" && x.parent.name === uHere.parent.name);
                 let channelsDa = categoryDa.map(e => client.channels.resolve(e));
                 for(let j = 0; j < channelsDa.length; j++) {
@@ -97,7 +100,7 @@ client.on("message", message => {
                         message.channel.send("Ma ti svegli?");
                     } else {
                         try {
-                            client.commands.get("moveall").execute(message, args, client);
+                            client.commands.get("moveall").execute(message, args, client, STARTSLICE, ENDSLICE);
                         } catch(error) {
                             message.channel.send("You think you can trick me?");
                         }
@@ -111,7 +114,7 @@ client.on("message", message => {
                 if(args.length == 3) {
                     args = upfirst(args);
                     try {
-                        client.commands.get("move").execute(message, args, client);
+                        client.commands.get("move").execute(message, args, client, STARTSLICE, ENDSLICE);
                     } catch(error) {
                         message.channel.send("You think you can trick me?");
                     }

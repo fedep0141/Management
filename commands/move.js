@@ -1,12 +1,12 @@
 module.exports = {
     name: "move",
     description: "@user or @role categoryB positionB: Move from A to B",
-    execute(message, args, client) {
+    execute(message, args, client, startslice, endslice) {
         let inCatB = args[1];
         let inNumB = args[2] - 1;
         let target, a, b;
         
-        const categoryA = message.guild.channels.cache.filter(x => x.type === "voice" && x.parent.name.slice(3, -3) === inCatB);
+        const categoryA = message.guild.channels.cache.filter(x => x.type === "voice" && x.parent.name.slice(startslice, -endslice) === inCatB);
         let channelsA = categoryA.map(e => client.channels.resolve(e));
 
         if(message.mentions.members.first()) {
