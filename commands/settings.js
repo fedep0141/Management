@@ -12,7 +12,9 @@ module.exports = {
         console.log(res);
 
         if(args.length == 0) {
-            message.channel.send(res);
+            message.channel.send(res.forEach(i => {
+                res[i];
+            }));
         } else if(args.length == 1){
             for(let key in db.get(message.guild.name)) {
                 if(args[0].toLowerCase() == key) {
