@@ -46,7 +46,7 @@ function image(message, options) {
                 url: urls[index]
             },
             footer: {
-                text: "GulagBot by Pyguz.#0456"
+                text: "by Pyguz.#0456"
               }
           }
         });

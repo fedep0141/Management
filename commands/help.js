@@ -37,7 +37,7 @@ module.exports = {
               },
             ],
             footer: {
-                text: "You can use here to have your category and position\nGulagBot by Pyguz.#0456"
+                text: "You can use here to have your category and position\nby Pyguz.#0456"
               }
           }
         });
