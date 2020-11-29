@@ -12,7 +12,7 @@ module.exports = {
         let res = stringDb.split(/[:,]+/g);
 
         if(args.length == 0) {
-            let embed = new Discord.RichEmbed()
+            let embed = new Discord.MessageEmbed()
             .setColor("#700d75")
             .setDescription("Settings");
             for(let key in db.get(message.guild.name)) {
