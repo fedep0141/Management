@@ -65,16 +65,6 @@ client.on("message", message => {
     if(message.channel.name != CHANNEL) {
         message.channel.send("Uagliò sei sul canale sbagliato");
     } else {
-        if(args.length > 0) {
-            for(let i = 0; i < args.length; i++) {
-                for(let key in SHORTCUTS) {
-                    if(args[i] == SHORTCUTS[key]) {
-                        args[i] = key;
-                    }
-                }
-                args[i] = args[i].charAt(0).toUpperCase() + args[i].slice(1);
-            }
-        }
         switch (command) {
             case "ping":
                 client.commands.get("ping").execute(message, client);
@@ -104,6 +94,7 @@ client.on("message", message => {
 
             case "moveall":
                 if(args.length == 4) {
+                    args = upfirst(args);
                     if(args[0] == args[2] && args[1] == args[3]) {
                         message.channel.send("Ma ti svegli?");
                     } else {
@@ -120,6 +111,7 @@ client.on("message", message => {
 
             case "move":
                 if(args.length == 3) {
+                    args = upfirst(args);
                     try {
                         client.commands.get("move").execute(message, args, client);
                     } catch(error) {
@@ -132,5 +124,16 @@ client.on("message", message => {
         }
     }
 });
+
+function upfirst(args) {
+    for(let i = 0; i < args.length; i++) {
+        for(let key in SHORTCUTS) {
+            if(args[i] == SHORTCUTS[key]) {
+                args[i] = key;
+            }
+        }
+        args[i] = args[i].charAt(0).toUpperCase() + args[i].slice(1);
+    }
+}
 
 client.login(process.env.GULAGBOT_TOKEN);
