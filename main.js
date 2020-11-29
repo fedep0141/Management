@@ -28,8 +28,6 @@ client.on("message", message => {
     const SERVER = message.guild;
     const PREFIX = DB.get(SERVER.name + ".prefix");
     const CHANNEL = DB.get(SERVER.name + ".channel");
-    console.log(DB.get(SERVER.name + ".prefix"));
-    console.log(PREFIX);
 
     if(!message.content.startsWith(PREFIX) && !message.author.bot) {
         if(message.channel.name == CHANNEL) {
@@ -134,6 +132,7 @@ function upfirst(args) {
         }
         args[i] = args[i].charAt(0).toUpperCase() + args[i].slice(1);
     }
+    return args;
 }
 
 client.login(process.env.GULAGBOT_TOKEN);
