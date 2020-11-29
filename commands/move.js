@@ -28,7 +28,8 @@ module.exports = {
                     value: channelsA[inNumB].parent.name + " " + channelsA[inNumB].name
                   },
                 ],
-                footer: "GulagBot by Pyguz.#0456"
+                footer: "GulagBot by Pyguz.#0456",
+                icon_url: "https://cdn.discordapp.com/avatars/484387014725206016/4113368f74bd7056a02b20b03b2995a3.png"
               }
             });
         } else if(message.mentions.roles.first()) {
@@ -55,6 +56,7 @@ module.exports = {
                 ],
                 footer: {
                     text: "by Pyguz.#0456",
+                    icon_url: "https://cdn.discordapp.com/avatars/484387014725206016/4113368f74bd7056a02b20b03b2995a3.png"
                 }
               }
             });

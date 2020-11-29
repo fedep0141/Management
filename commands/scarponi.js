@@ -46,7 +46,8 @@ function image(message, options) {
                 url: urls[index]
             },
             footer: {
-                text: "by Pyguz.#0456"
+                text: "by Pyguz.#0456",
+                icon_url: "https://cdn.discordapp.com/avatars/484387014725206016/4113368f74bd7056a02b20b03b2995a3.png"
               }
           }
         });

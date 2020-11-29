@@ -8,7 +8,7 @@ module.exports = {
             let embed = new Discord.MessageEmbed()
             .setColor("#1d5791")
             .setDescription("Settings")
-            .setFooter("GulagBot by Pyguz.#0456");
+            .setFooter("GulagBot by Pyguz.#0456", "https://cdn.discordapp.com/avatars/484387014725206016/4113368f74bd7056a02b20b03b2995a3.png");
             for(let key in db.get(message.guild.name)) {
                 embed.addField(key, db.get(message.guild.name + "." + key), true);
             }
