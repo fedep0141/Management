@@ -63,6 +63,12 @@ client.on("message", message => {
         return;
     }
 
+    //Global command
+    if(command == "setting" || command == "settings") {
+        client.commands.get("setting").execute(message, args, DB);
+        return;
+    }
+
     if(message.channel.name != CHANNEL) {
         message.channel.send("Uagliò sei sul canale sbagliato");
     } else {
@@ -74,11 +80,6 @@ client.on("message", message => {
             case "aiut":
             case "help":
                 client.commands.get("help").execute(message, args, PREFIX);
-                break;
-
-            case "setting":
-            case "settings":
-                client.commands.get("setting").execute(message, args, DB);
                 break;
 
             case "ban":
