@@ -16,7 +16,6 @@ client.on("ready", () => {
     console.log("GulagBot is online");
     //for now
     DB.set("IL GULAG", DEFAULT);
-    console.log(Array.from(client.commands.keys()));
 });
 
 client.on("guildCreate", (guild) => {
@@ -80,7 +79,7 @@ client.on("message", message => {
 
             case "aiut":
             case "help":
-                client.commands.get("help").execute(message, args, PREFIX, commands);
+                client.commands.get("help").execute(message, args, PREFIX, client.commands);
                 break;
 
             case "ban":

@@ -3,6 +3,7 @@ const Discord = require("discord.js");
 module.exports = {
     name: "setting",
     description: "Change settings",
+    whatDo: "Change settings",
     execute(message, args, db) {
         if(args.length == 0) {
             let embed = new Discord.MessageEmbed()

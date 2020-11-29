@@ -1,47 +1,19 @@
+const Discord = require("discord.js");
+
 module.exports = {
     name: "help",
     description: "Aiuto con i comandi",
-    whatDo: "",
+    whatDo: "Help with commands",
     execute(message, args, prefix, commands) {
-        message.channel.send({embed: {
-            color: "#28b013",
-            description: "Command list",
-            fields: [{
-                name: "help",
-                value: "Show command list",
-                inline: true
-              },
-              {
-                name: "moveall",
-                value: "categoryA posA categoryB positionB: Move from A to B",
-                inline: true
-              },
-              {
-                name: "move",
-                value: "@user or @role categoryB positionB: Move from A to B",
-                inline: true
-              },
-              {
-                name: "scarponi",
-                value: "Non te ne pentirai",
-                inline: true
-              },
-              {
-                name: "pat",
-                value: "@user: pat someone",
-                inline: true
-              },
-              {
-                name: "settings",
-                value: "Change settings",
-                inline: true
-              },
-            ],
-            footer: {
-                text: "You can use here to have your category and position\nby Pyguz.#0456",
-                icon_url: "https://cdn.discordapp.com/avatars/484387014725206016/4113368f74bd7056a02b20b03b2995a3.png"
-              }
-          }
-        });
+      
+      let embed = new Discord.MessageEmbed()
+      .setColor("#28b013")
+      .setDescription("Command list")
+      .setFooter("by Pyguz.#0456", "https://cdn.discordapp.com/avatars/484387014725206016/4113368f74bd7056a02b20b03b2995a3.png");
+      for(let key in Array.from(commands.keys())) {
+        embed.addField(key, commands.get(key).whatDo, true);
+      }
+
+      message.channel.send(embed);
     }
 }
