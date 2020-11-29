@@ -7,14 +7,12 @@ module.exports = {
         stringDb = stringDb.replace("}", "");
         // stringDb = stringDb.replace(",", "\n");
         stringDb = stringDb.replace(/['"]+/g, "");
-        let res = stringDb.split(/[:]+[,]+/g);
+        let res = stringDb.split(/:+/g);
 
         console.log(res);
 
         if(args.length == 0) {
-            message.channel.send(res.forEach(i => {
-                res;
-            }));
+            message.channel.send(res);
         } else if(args.length == 1){
             for(let key in db.get(message.guild.name)) {
                 if(args[0].toLowerCase() == key) {
