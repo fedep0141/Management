@@ -10,10 +10,11 @@ module.exports = {
       .setColor("#28b013")
       .setDescription("Command list")
       .setFooter("by Pyguz.#0456", "https://cdn.discordapp.com/avatars/484387014725206016/4113368f74bd7056a02b20b03b2995a3.png");
-      for(let key in Array.from(commands.keys())) {
-        console.log(key);
+      Array.from(commands.keys()).forEach(key => {
         embed.addField(key, commands.get(key).whatDo, true);
-      }
+      });
+        
+      
 
       message.channel.send(embed);
     }
