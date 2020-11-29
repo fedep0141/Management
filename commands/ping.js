@@ -10,7 +10,11 @@ module.exports = {
                 name: "Ping",
                 value: client.ws.ping
               }
-            ]
+            ],
+            footer: {
+                text: "GulagBot by Pyguz.#0456",
+                url: "https://discord.com/users/Pyguz.#0456/"
+              }
           }
         });
     }

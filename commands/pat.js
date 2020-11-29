@@ -12,6 +12,10 @@ module.exports = {
                     image: {
                         url: "https://i.kym-cdn.com/entries/icons/original/000/030/329/cover1.jpg"
                     },
+                    footer: {
+                        text: "GulagBot by Pyguz.#0456",
+                        url: "https://discord.com/users/Pyguz.#0456/"
+                    }
                   }
                 });
             } else {
@@ -21,7 +25,11 @@ module.exports = {
                     fields: [{
                         name: menzione.user.username
                       },
-                    ]
+                    ],
+                    footer: {
+                        text: "GulagBot by Pyguz.#0456",
+                        url: "https://discord.com/users/Pyguz.#0456/"
+                    }
                   }
                 });
             }

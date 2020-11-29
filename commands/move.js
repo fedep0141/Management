@@ -27,7 +27,8 @@ module.exports = {
                     name: "To",
                     value: channelsA[inNumB].parent.name + " " + channelsA[inNumB].name
                   },
-                ]
+                ],
+                footer: "GulagBot by Pyguz.#0456"
               }
             });
         } else if(message.mentions.roles.first()) {
@@ -51,7 +52,11 @@ module.exports = {
                     name: "To",
                     value: channelsA[inNumB].parent.name + " " + channelsA[inNumB].name
                   },
-                ]
+                ],
+                footer: {
+                    text: "GulagBot by Pyguz.#0456",
+                    url: "https://discord.com/users/Pyguz.#0456/"
+                }
               }
             });
         }
