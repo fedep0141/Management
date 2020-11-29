@@ -79,7 +79,7 @@ client.on("message", message => {
 
             case "aiut":
             case "help":
-                client.commands.get("help").execute(message, args, PREFIX, client.commands);
+                client.commands.get("help").execute(message, PREFIX, client.commands);
                 break;
 
             case "ban":
