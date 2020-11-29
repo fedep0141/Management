@@ -18,6 +18,7 @@ module.exports = {
             for(let key in db.get(message.guild.name)) {
                 embed.addField(key, db.get(message.guild.name + "." + key), true);
             }
+            message.channel.send(embed);
         } else if(args.length == 1){
             for(let key in db.get(message.guild.name)) {
                 if(args[0].toLowerCase() == key) {
