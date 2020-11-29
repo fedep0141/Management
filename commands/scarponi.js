@@ -39,6 +39,13 @@ function image(message, options) {
 
         let index = Math.floor(Math.random() * urls.length);
     
-        message.channel.send("Scarp", {files: [urls[index]]});
+        message.channel.send({embed: {
+            color: "#593110",
+            description: "Scarp",
+            image: {
+                url: urls[index]
+            },
+          }
+        });
     });
 }

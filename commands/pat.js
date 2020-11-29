@@ -19,8 +19,7 @@ module.exports = {
                     color: "#700d75",
                     description: "Pat pat",
                     fields: [{
-                        name: "To",
-                        value: "**" + menzione.user.username + "**"
+                        name: menzione.user.username
                       },
                     ]
                   }

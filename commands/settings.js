@@ -1,15 +1,19 @@
 module.exports = {
     name: "setting",
-    description: "Aiuto con i comandi",
+    description: "Change settings",
     execute(message, args, db) {
         let stringDb = JSON.stringify(db.get(message.guild.name));
         stringDb = stringDb.replace("{", "");
         stringDb = stringDb.replace("}", "");
-        stringDb = stringDb.replace(",", "\n");
+        // stringDb = stringDb.replace(",", "\n");
         stringDb = stringDb.replace(/['"]+/g, "");
+        let res = stringDb.split(":");
+        res = res.split(",");
 
         if(args.length == 0) {
-            message.channel.send(stringDb);
+            message.channel.send(res.forEach(i => {
+                res[i];
+            }));
         } else if(args.length == 1){
             for(let key in db.get(message.guild.name)) {
                 if(args[0].toLowerCase() == key) {
