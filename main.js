@@ -99,11 +99,11 @@ client.on("message", message => {
                         try {
                             client.commands.get("moveall").execute(message, args, client);
                         } catch(error) {
-                            message.channel.send("Pensi di fottermi?");
+                            message.channel.send("You think you can trick me?");
                         }
                     }
                 } else {
-                    message.channel.send("Wut?");
+                    message.channel.send(client.commands.get("moveall").description);
                 }
                 break;
 
@@ -113,10 +113,10 @@ client.on("message", message => {
                     try {
                         client.commands.get("move").execute(message, args, client);
                     } catch(error) {
-                        message.channel.send("Pensi di fottermi?");
+                        message.channel.send("You think you can trick me?");
                     }
                 } else {
-                    message.channel.send("Wut?");
+                    message.channel.send(client.commands.get("move").description);
                 }
                 break;
         }
