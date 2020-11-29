@@ -7,8 +7,7 @@ module.exports = {
         stringDb = stringDb.replace("}", "");
         // stringDb = stringDb.replace(",", "\n");
         stringDb = stringDb.replace(/['"]+/g, "");
-        let res = stringDb.split(":");
-        res = res.split(",");
+        let res = stringDb.split(/[:]+[,]+/g);
 
         if(args.length == 0) {
             message.channel.send(res.forEach(i => {
