@@ -7,7 +7,7 @@ module.exports = {
         stringDb = stringDb.replace("}", "");
         // stringDb = stringDb.replace(",", "\n");
         stringDb = stringDb.replace(/['"]+/g, "");
-        let res = stringDb.split(/[: | ,] +/g);
+        let res = stringDb.split(/[:,]+/g);
 
         console.log(res);
 
