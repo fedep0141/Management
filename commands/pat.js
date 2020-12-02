@@ -24,7 +24,8 @@ module.exports = {
                     color: "#700d75",
                     description: "Pat pat",
                     fields: [{
-                        name: menzione.user.username
+                        name: menzione.user.username,
+                        description: null
                       },
                     ],
                     footer: {
