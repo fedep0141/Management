@@ -32,7 +32,8 @@ client.on("message", message => {
     const STARTSLICE = DB.get(SERVER.name + ".startslice");
     const ENDSLICE = DB.get(SERVER.name + ".endslice");
 
-    console.log("entrato");
+    console.log(PREFIX, SERVER, CHANNEL);
+    message.channel.send("Ci sono");
 
     if(!message.content.startsWith(PREFIX) && !message.author.bot) {
         if(message.channel.name == CHANNEL) {
