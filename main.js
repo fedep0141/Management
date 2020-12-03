@@ -46,7 +46,7 @@ client.on("message", message => {
     }
     if(message.author.bot) return;
 
-    DB.table(SERVER.name);
+    console.log(DB.table(SERVER.name));
     let args = message.content.slice(PREFIX.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
