@@ -25,7 +25,7 @@ module.exports = {
                     description: "Pat pat",
                     fields: [{
                         name: menzione.user.username,
-                        value: null
+                        value: ""
                       }
                     ],
                     footer: {
