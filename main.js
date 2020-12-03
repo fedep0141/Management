@@ -15,7 +15,7 @@ for(let file of COMMANDFILES) {
 client.on("ready", () => {
     console.log("GulagBot is online");
     //for now
-    DB.set("IL GULAG", DEFAULT);
+    DB.set("KERNEL", DEFAULT);
 });
 
 client.on("guildCreate", (guild) => {
@@ -31,8 +31,6 @@ client.on("message", message => {
     const CHANNEL = DB.get(SERVER.name + ".channel");
     const STARTSLICE = DB.get(SERVER.name + ".startslice");
     const ENDSLICE = DB.get(SERVER.name + ".endslice");
-
-    console.log(PREFIX, SERVER, CHANNEL);
 
     if(!message.content.startsWith(PREFIX) && !message.author.bot) {
         if(message.channel.name == CHANNEL) {
