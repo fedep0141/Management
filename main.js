@@ -26,8 +26,10 @@ client.on("guildCreate", guild => {
 });
 
 client.on("guildUpdate", (oldGuild, newGuild) => {
-    DB.set(newGuild.name, DB.get(oldGuild.name));
-    DB.delete(oldGuild.name);
+    if(newGuild.name != oldGuild.name) {
+        DB.set(newGuild.name, DB.get(oldGuild.name));
+        DB.delete(oldGuild.name);
+    }
 });
 
 client.on("message", message => {
@@ -46,7 +48,6 @@ client.on("message", message => {
     }
     if(message.author.bot) return;
 
-    console.log(DB.get(SERVER.name));
     let args = message.content.slice(PREFIX.length).split(/ +/);
     const command = args.shift().toLowerCase();
 

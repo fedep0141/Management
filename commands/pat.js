@@ -25,8 +25,8 @@ module.exports = {
                     description: "Pat pat",
                     fields: [{
                         name: menzione.user.username,
-                        description: ""
-                      },
+                        value: null
+                      }
                     ],
                     footer: {
                         text: "by Pyguz.#0456",
