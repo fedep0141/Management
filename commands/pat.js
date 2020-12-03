@@ -22,9 +22,8 @@ module.exports = {
             } else {
                 message.channel.send({embed: {
                     color: "#700d75",
-                    description: "Pat pat",
                     fields: [{
-                        name: "",
+                        name: "Pat pat",
                         value: "**" + menzione.user.username + "**"
                       }
                     ],
