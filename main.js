@@ -18,11 +18,16 @@ client.on("ready", () => {
     DB.set("KERNEL", DEFAULT);
 });
 
-client.on("guildCreate", (guild) => {
+client.on("guildCreate", guild => {
     DB.set(guild.name, DEFAULT);
     guild.channels.create("move", {type: "text"}).then((channel) => {
         channel.send("Here you can use this bot.\nTo change the name use the $settings command");
-    })
+    });
+});
+
+client.on("guildUpdate", (oldGuild, newGuild) => {
+    DB.set(newGuild.name, DB.table(oldGuild.name));
+    DB.delete(oldGuild);
 });
 
 client.on("message", message => {
@@ -41,6 +46,7 @@ client.on("message", message => {
     }
     if(message.author.bot) return;
 
+    DB.table(SERVER.name);
     let args = message.content.slice(PREFIX.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
