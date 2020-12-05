@@ -1,9 +1,13 @@
 {
     "UNTOUCHABLS": "un",
-    "Chatting" : "chat",
+    "Chatting": "chat",
+    "Call of Duty": "cod",
     "Rainbow Six Siege": "r6",
     "Among Us": "among",
+    "League of Legends": "lol",
+    "Counter Strike": "cs",
     "Fortnite": "fort",
+    "Other Games": "other",
     "Brawl Stars": "brawl",
     "AWAY FROM KEYBOARD": "afk"
 }
