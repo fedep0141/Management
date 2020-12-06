@@ -42,6 +42,7 @@ client.on("message", message => {
     if(!message.content.startsWith(PREFIX) && !message.author.bot) {
         if(message.channel.name == CHANNEL) {
             message.delete();
+            return;
         } else {
             return;
         }
