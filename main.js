@@ -142,7 +142,9 @@ function upfirst(args) {
                 args[i] = key;
             }
         }
-        args[i] = args[i].charAt(0).toUpperCase() + args[i].slice(1);
+        if(isNaN(args[i].charAt(0))) {
+            args[i] = args[i].charAt(0).toUpperCase() + args[i].slice(1);
+        }
     }
     return args;
 }
