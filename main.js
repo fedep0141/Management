@@ -108,11 +108,11 @@ client.on("message", message => {
                     if(args[0] == args[2] && args[1] == args[3]) {
                         message.channel.send("Ma ti svegli?");
                     } else {
-                        try {
+                        // try {
                             client.commands.get("moveall").execute(message, args, client, STARTSLICE, ENDSLICE);
-                        } catch(error) {
-                            message.channel.send("You think you can trick me?");
-                        }
+                        // } catch(error) {
+                        //     message.channel.send("You think you can trick me?");
+                        // }
                     }
                 } else {
                     message.channel.send(client.commands.get("moveall").description);
