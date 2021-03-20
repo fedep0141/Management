@@ -1,8 +1,8 @@
 const Discord = require("discord.js");
-const SHORTCUTS = require("./shortcuts.json");
 const DEFAULT = require("./default.json");
 const DB = require("quick.db");
 const FS = require("fs");
+require("dotenv").config();
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
@@ -13,9 +13,7 @@ for(let file of COMMANDFILES) {
 }
 
 client.on("ready", () => {
-    console.log("GulagBot is online");
-    //for now
-    DB.set("KERNEL", DEFAULT);
+    console.log("Management is online");
 });
 
 client.on("guildCreate", guild => {
@@ -38,6 +36,7 @@ client.on("message", message => {
     const CHANNEL = DB.get(SERVER.name + ".channel");
     const STARTSLICE = DB.get(SERVER.name + ".startslice");
     const ENDSLICE = DB.get(SERVER.name + ".endslice");
+    const SHORTCUTS = DB.get(SERVER.name + ".shortcuts");
 
     if(!message.content.startsWith(PREFIX) && !message.author.bot) {
         if(message.channel.name == CHANNEL) {
@@ -104,7 +103,7 @@ client.on("message", message => {
 
             case "moveall":
                 if(args.length == 4) {
-                    args = upfirst(args);
+                    args = upfirst(args, SHORTCUTS);
                     if(args[0] == args[2] && args[1] == args[3]) {
                         message.channel.send("Ma ti svegli?");
                     } else {
@@ -121,7 +120,7 @@ client.on("message", message => {
 
             case "move":
                 if(args.length == 3) {
-                    args = upfirst(args);
+                    args = upfirst(args, SHORTCUTS);
                     try {
                         client.commands.get("move").execute(message, args, client, STARTSLICE, ENDSLICE);
                     } catch(error) {
@@ -135,7 +134,7 @@ client.on("message", message => {
     }
 });
 
-function upfirst(args) {
+function upfirst(args, SHORTCUTS) {
     for(let i = 0; i < args.length; i++) {
         for(let key in SHORTCUTS) {
             if(args[i] == SHORTCUTS[key]) {
@@ -149,4 +148,4 @@ function upfirst(args) {
     return args;
 }
 
-client.login(process.env.GULAGBOT_TOKEN);
+client.login(process.env.MANAGEMENT_TOKEN);

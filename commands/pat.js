@@ -1,6 +1,6 @@
 module.exports = {
     name: "pat",
-    description: "@user: pat someone",
+    description: "<@user>",
     whatDo: "Pat the mention",
     execute(message) {
         let menzione = message.mentions.members.first();
