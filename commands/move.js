@@ -1,13 +1,13 @@
 module.exports = {
     name: "move",
-    description: "<@user or @role> <categoryB> <channelNumberB>",
-    whatDo: "Move the mention to channel",
-    execute(message, args, client, startslice, endslice) {
+    description: "Move the mention to channel",
+    usage: "<@user or @role> <categoryB> <channelNumberB>",
+    execute(message, args, {}, {}, client) {
         let inCatB = args[1];
         let inNumB = args[2] - 1;
         let target, a, b;
         
-        const categoryA = message.guild.channels.cache.filter(x => x.type === "voice" && x.parent.name.slice(startslice, -endslice) === inCatB);
+        const categoryA = message.guild.channels.cache.filter(x => x.type === "voice" && x.parent.name.toLowerCase().includes(inCatB));
         let channelsA = categoryA.map(e => client.channels.resolve(e));
 
         if(message.mentions.members.first()) {

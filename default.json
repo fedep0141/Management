@@ -1,6 +1,7 @@
 {
     "prefix": "$",
     "channel": "move",
-    "startslice": 3,
-    "endslice": 3
+    "shortcuts": {
+        "test": "test1"
+    }
 }

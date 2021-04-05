@@ -1,15 +1,15 @@
 module.exports = {
     name: "moveall",
-    description: "<categoryA> <channelNumberA> <categoryB> <channelNumberB>",
-    whatDo: "Move everyone from channel A to channel B",
-    execute(message, args, client, startslice, endslice) {
+    description: "Move everyone from a channel to another",
+    usage: "<categoryA> <channelNumberA> <categoryB> <channelNumberB>",
+    execute(message, args, {}, {}, client) {
         let inCatA = args[0], inCatB = args[2];
         let inNumA = args[1] - 1, inNumB = args[3] - 1;
 
-        const categoryDa = message.guild.channels.cache.filter(x => x.type === "voice" && x.parent.name.slice(startslice, -endslice) === inCatA);
+        const categoryDa = message.guild.channels.cache.filter(x => x.type === "voice" && x.parent.name.toLowerCase().includes(inCatA));
         let channelsDa = categoryDa.map(e => client.channels.resolve(e));
 
-        const categoryA = message.guild.channels.cache.filter(x => x.type === "voice" && x.parent.name.slice(startslice, -endslice) === inCatB);
+        const categoryA = message.guild.channels.cache.filter(x => x.type === "voice" && x.parent.name.toLowerCase().includes(inCatB));
         let channelsA = categoryA.map(e => client.channels.resolve(e));
 
         channelsDa[inNumA].members.forEach(member => {
