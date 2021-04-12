@@ -35,7 +35,7 @@ client.on("guildDelete", guild => {
 });
 
 client.on("message", message => {
-    const flag = true
+    let flag = true
     while (flag) {
         try {
             var SERVER = message.guild;
