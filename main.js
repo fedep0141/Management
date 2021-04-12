@@ -35,10 +35,19 @@ client.on("guildDelete", guild => {
 });
 
 client.on("message", message => {
-    const SERVER = message.guild;
-    const PREFIX = DB.get(SERVER.name + ".prefix");
-    const CHANNEL = DB.get(SERVER.name + ".channel");
-    const SHORTCUTS = DB.get(SERVER.name + ".shortcuts");
+    const flag = true
+    while (flag) {
+        try {
+            var SERVER = message.guild;
+            var PREFIX = DB.get(SERVER.name + ".prefix");
+            var CHANNEL = DB.get(SERVER.name + ".channel");
+            var SHORTCUTS = DB.get(SERVER.name + ".shortcuts");
+            flag = false;
+        } catch (error) {
+            flag = true;
+        }
+    }
+    
 
     if(!message.content.startsWith(PREFIX) && !message.author.bot) {
         if(message.channel.name == CHANNEL) {
