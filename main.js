@@ -47,6 +47,11 @@ client.on("message", message => {
             flag = true;
         }
     }
+
+    if(message.guild.me.hasPermission("ADMINISTRATOR")) {
+        message.channel.send("I need administrator permission to see channels and move everyone");
+        return;
+    }
     
 
     if(!message.content.startsWith(PREFIX) && !message.author.bot) {
