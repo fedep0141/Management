@@ -48,12 +48,6 @@ client.on("message", message => {
         }
     }
 
-    if(message.guild.me.hasPermission("ADMINISTRATOR")) {
-        message.channel.send("I need administrator permission to see channels and move everyone");
-        return;
-    }
-    
-
     if(!message.content.startsWith(PREFIX) && !message.author.bot) {
         if(message.channel.name == CHANNEL) {
             message.delete();
@@ -61,6 +55,11 @@ client.on("message", message => {
         } else return;
     }
     if(message.author.bot) return;
+
+    if(!message.guild.me.hasPermission("ADMINISTRATOR")) {
+        message.channel.send("I need administrator permission to see channels and move everyone");
+        return;
+    }
 
     let args = message.content.toLowerCase().slice(PREFIX.length);
     args = args.match(/"[^"]*"|\S+/g).map(m => m.slice(0, 1) === '"'? m.slice(1, -1): m)
