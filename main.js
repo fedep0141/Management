@@ -56,8 +56,8 @@ client.on("message", message => {
     }
     if(message.author.bot) return;
 
-    if(!message.guild.me.hasPermission("ADMINISTRATOR")) {
-        message.channel.send("I need administrator permission to see channels and move everyone");
+    if(!message.guild.me.hasPermission("MANAGE_CHANNELS") && !message.guild.me.hasPermission("MOVE_MEMBERS")) {
+        message.channel.send("I need the permissions to see channels and move everyone");
         return;
     }
 
