@@ -17,7 +17,7 @@ client.on("ready", () => {
 });
 
 client.on("guildCreate", guild => {
-    DB.set(guild.name, DEFAULT);
+    DB.set(guild.name, JSON.parse(JSON.stringify(DEFAULT)));
     guild.channels.create("move", {type: "text"}).then((channel) => {
         channel.send("Here you can use this bot.\nTo change the name use the $settings command");
     });
